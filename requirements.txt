@@ -1,9 +1,9 @@
 dash==2.17.1
 dash-bootstrap-components==1.6.0
 plotly==5.22.0
-pandas==2.2.2
-numpy==1.26.4
-xgboost==2.0.3
-scikit-learn==1.4.2
+pandas>=2.2.3
+numpy>=2.0
+xgboost>=2.1.0
+scikit-learn>=1.7.0
 anthropic==0.28.0
 openpyxl==3.1.2
