@@ -1,7 +1,7 @@
 # ChurnInsight Dashboard
 https://customer-churn-production-4ac0.up.railway.app/ 
 
-Customer churn prediction dashboard powered by XGBoos .
+Customer churn prediction dashboard powered by XGBoost .
 
 ## Project Structure
 
