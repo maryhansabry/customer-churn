@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;500;700&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  background: #080811 !important;
+  font-family: 'Syne', sans-serif !important;
+  color: #e2e2ee !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+/* Tabs */
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.35);
+  padding: 5px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: 'Syne', sans-serif;
+  transition: all .2s;
+}
+.tab-btn:hover { color: rgba(255,255,255,0.6); }
+.active-tab {
+  background: rgba(124,106,247,0.18) !important;
+  color: #b8b0ff !important;
+}
+
+/* Dark dropdown override */
+.dark-dropdown .Select-control,
+.dark-dropdown .Select-menu-outer {
+  background: rgba(255,255,255,0.05) !important;
+  border: 0.5px solid rgba(255,255,255,0.07) !important;
+  color: #e2e2ee !important;
+  border-radius: 8px !important;
+}
+.dark-dropdown .Select-value-label,
+.dark-dropdown .Select-placeholder { color: #e2e2ee !important; }
+.dark-dropdown .Select-option { background: #13132033 !important; color: #e2e2ee !important; }
+.dark-dropdown .Select-option:hover,
+.dark-dropdown .Select-option.is-focused {
+  background: rgba(124,106,247,0.15) !important;
+}
+
+/* DataTable filters */
+.dash-filter input {
+  background: rgba(255,255,255,0.04) !important;
+  border: 0.5px solid rgba(255,255,255,0.08) !important;
+  color: rgba(255,255,255,0.5) !important;
+  border-radius: 4px !important;
+  font-family: 'Syne', sans-serif !important;
+  font-size: 11px !important;
+  padding: 3px 7px !important;
+}
+
+/* Pagination */
+.previous-page, .next-page, .last-page, .first-page, .page-number {
+  background: rgba(255,255,255,0.05) !important;
+  border: 0.5px solid rgba(255,255,255,0.08) !important;
+  color: rgba(255,255,255,0.4) !important;
+  border-radius: 4px !important;
+}
+.current-page { color: #b8b0ff !important; }
+
+/* Upload drag */
+.dash-upload {
+  border: none !important;
+  background: transparent !important;
+}
