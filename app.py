@@ -1,10 +1,9 @@
 # app.py — Entry point only
-
+import os
 import pickle
 import dash
 import dash_bootstrap_components as dbc
 from dash import dcc, html
-
 from config import C
 from layout import topbar, single_page
 from callbacks import register_callbacks
@@ -23,7 +22,6 @@ app = dash.Dash(
     suppress_callback_exceptions=True
 )
 app.title = "ChurnInsight"
-
 app.layout = html.Div([
     dcc.Store(id="data-store"),
     dcc.Store(id="single-store"),
@@ -40,8 +38,8 @@ app.layout = html.Div([
 # ── Register callbacks ────────────────────────────────────────────────────────
 register_callbacks(app, MODEL)
 server = app.server
+
 # ── Run ───────────────────────────────────────────────────────────────────────
-# if __name__ == "__main__":
-    # app.run(debug=False)
-    # print("🚀  ChurnInsight → http://localhost:8050")
-    # app.run(debug=True, port=8050)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8050))
+    app.run(host="0.0.0.0", port=port, debug=False)
