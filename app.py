@@ -39,8 +39,9 @@ app.layout = html.Div([
 
 # ── Register callbacks ────────────────────────────────────────────────────────
 register_callbacks(app, MODEL)
-
+server = app.server
 # ── Run ───────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    print("🚀  ChurnInsight → http://localhost:8050")
-    app.run(debug=True, port=8050)
+    app.run(debug=False)
+    # print("🚀  ChurnInsight → http://localhost:8050")
+    # app.run(debug=True, port=8050)
