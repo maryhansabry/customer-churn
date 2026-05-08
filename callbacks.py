@@ -7,7 +7,8 @@ import os
 import dash
 import numpy as np
 import pandas as pd
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from dash import Input, Output, State, html, dcc, callback_context
 from dotenv import load_dotenv
 
@@ -16,8 +17,7 @@ from layout import build_single_result, build_batch_dashboard
 from recommendations import get_recommendation, build_chat_context
 
 load_dotenv()
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-GEMINI = genai.GenerativeModel("gemini-2.5-flash")
+GEMINI = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 
 # ── Column normalization ──────────────────────────────────────────────────────
@@ -205,8 +205,11 @@ Conversation:
             prompt += f"{role}: {m['content']}\n"
 
         try:
-            response = GEMINI.generate_content(prompt)
-            answer   = response.text.strip() if response.text else "No response."
+            response = GEMINI.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt,
+            )
+            answer = response.text.strip() if response.text else "No response."
         except Exception as e:
             answer = f"Error: {str(e)}"
 
