@@ -7,6 +7,5 @@ xgboost>=2.1.0
 scikit-learn>=1.7.0
 anthropic==0.28.0
 google-genai
-google-generativeai
 python-dotenv
 openpyxl==3.1.2
