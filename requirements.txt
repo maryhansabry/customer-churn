@@ -6,4 +6,5 @@ numpy>=2.0
 xgboost>=2.1.0
 scikit-learn>=1.7.0
 anthropic==0.28.0
+google-generativeai
 openpyxl==3.1.2
