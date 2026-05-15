@@ -276,7 +276,7 @@ def build_batch_dashboard(df):
     action_counts    = df[df["risk"] == "High"]["action"].value_counts()
 
     # Table
-    disp = df.sort_values("churn_prob", ascending=False).head(50).copy()
+    disp = df.copy()
     disp["churn_pct"] = disp["churn_pct"].apply(lambda x: f"{x}%")
 
     table = dash_table.DataTable(
