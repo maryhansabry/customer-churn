@@ -19,10 +19,8 @@
 ---
 
 ## 📸 Demo
+<img width="1920" height="1030" alt="Screenshot 2026-05-29 194743" src="https://github.com/user-attachments/assets/afbfdcb2-033f-42f7-82fb-d1f983f99edb" />
 
-> *(Add a GIF or screenshot of the dashboard here)*  
-> `![Dashbo<img width="1920" height="1030" alt="Screenshot 2026-05-29 194743" src="https://github.com/user-attachments/assets/a389568b-7537-4532-b1c3-55d9e621d1fe" />
-ard Preview](assets/demo.gif)`
 
 ---
 
