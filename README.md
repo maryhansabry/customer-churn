@@ -21,7 +21,8 @@
 ## 📸 Demo
 
 > *(Add a GIF or screenshot of the dashboard here)*  
-> `![Dashboard Preview](assets/demo.gif)`
+> `![Dashbo<img width="1920" height="1030" alt="Screenshot 2026-05-29 194743" src="https://github.com/user-attachments/assets/a389568b-7537-4532-b1c3-55d9e621d1fe" />
+ard Preview](assets/demo.gif)`
 
 ---
 
