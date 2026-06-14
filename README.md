@@ -1,98 +1,207 @@
-# ChurnInsight Dashboard
-https://customer-churn-production-4ac0.up.railway.app/ 
+# 📉 ChurnInsight Dashboard
 
-Customer churn prediction dashboard powered by XGBoost .
+### AI-Powered Customer Churn Prediction & Retention Intelligence Platform
 
-## Project Structure
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Railway-blueviolet?style=for-the-badge)](https://customer-churn-production-4ac0.up.railway.app/)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Plotly Dash](https://img.shields.io/badge/Plotly_Dash-2.0+-00CC96?style=for-the-badge&logo=plotly&logoColor=white)](https://dash.plotly.com)
+[![XGBoost](https://img.shields.io/badge/XGBoost-ML_Model-FF6600?style=for-the-badge&logo=xgboost&logoColor=white)](https://xgboost.readthedocs.io)
+[![Claude AI](https://img.shields.io/badge/Anthropic_Claude-AI_Chat-6B4FBB?style=for-the-badge)](https://anthropic.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+
+> **Predict which customers will leave — before they do.**  
+> A full-stack ML dashboard combining XGBoost prediction, interactive analytics, and Anthropic Claude AI for actionable retention strategies.
+
+**[🌐 Try it Live →](https://customer-churn-production-4ac0.up.railway.app/)**
+
+</div>
+
+---
+
+## 📸 Demo
+
+> *(Add a GIF or screenshot of the dashboard here)*  
+> `![Dashboard Preview](assets/demo.gif)`
+
+---
+
+## 🧠 What Is This?
+
+**ChurnInsight** is an end-to-end customer churn prediction system built for e-commerce businesses. It answers two critical questions:
+
+1. **Who is about to leave?** — XGBoost ML model predicts churn probability for each customer.
+2. **What should we do about it?** — A built-in recommendation engine + Claude AI chat suggests tailored retention actions.
+
+### Key Differentiators
+- 🤖 **AI Chat Integration** — Ask Claude AI anything about a specific customer's churn risk
+- 📊 **6 Interactive Charts** — Visual breakdown of churn by city tier, tenure, complaints, and more
+- ⚡ **Batch Processing** — Upload thousands of customers at once via CSV
+- 🎯 **Actionable Retention Logic** — Automatic rules engine maps risk to real business actions
+- 📥 **Export Results** — Download predictions + recommendations as CSV
+
+---
+
+## 🏗️ Architecture & Tech Stack
 
 ```
-churn_dashboard/
-├── app.py                  ← Main Dash app
-├── recommendations.py      ← Actionable insights engine
-├── xgb_churn_model.pkl     ← Your trained model (copy here)
-├── requirements.txt        ← Dependencies
+ChurnInsight/
+├── app.py                 ← Dash app entry point & server config
+├── layout.py              ← UI layout & component structure
+├── callbacks.py           ← All interactive logic & predictions
+├── charts.py              ← 6 Plotly chart builders
+├── recommendations.py     ← Retention action rules engine
+├── config.py              ← App configuration & constants
+├── xgb_churn_model.pkl    ← Pre-trained XGBoost model
+├── requirements.txt       ← Python dependencies
 ├── assets/
-│   └── style.css           ← Dark theme CSS
-└── README.md
+│   └── style.css          ← Custom dark theme
+└── DS_Project (1).ipynb   ← EDA & model training notebook
 ```
 
-## Setup
+| Layer | Technology |
+|---|---|
+| **Frontend** | Plotly Dash, HTML/CSS |
+| **Backend** | Python, Dash Callbacks |
+| **ML Model** | XGBoost Classifier |
+| **AI Integration** | Anthropic Claude API |
+| **Deployment** | Railway |
+| **Data Analysis** | Pandas, NumPy, Jupyter |
 
-### 1. Install dependencies
+---
+
+## ✨ Features
+
+### 🔍 Tab 1 — Single Customer Prediction
+Enter a customer's profile and get:
+- **Churn probability** displayed on a real-time gauge chart
+- **Risk classification**: Low / Medium / High
+- **Recommended retention action** (see logic below)
+- **AI Chat** — Interact with Claude about this specific customer
+
+### 📦 Tab 2 — Batch Analysis
+Upload a CSV file and get:
+
+| Chart | Insight |
+|---|---|
+| 🍩 Risk Distribution Donut | Overall churn risk breakdown |
+| 📊 Churn by City Tier | Which cities have highest risk |
+| ⚖️ Churn vs Complaint | Impact of complaints on churn |
+| 📈 Churn by Tenure | How long customers stay before leaving |
+| 🔵 Hours Spent vs Risk | Engagement level correlation |
+| 📉 Risk Score Distribution | Histogram of predicted probabilities |
+
+Plus: sortable results table + **CSV export** of all predictions.
+
+---
+
+## 🎯 Retention Recommendation Logic
+
+| Customer Condition | Recommended Action |
+|---|---|
+| Has complained | 📞 Priority Retention Call |
+| Days since last order > 20 | 🎁 Send Coupon / Discount |
+| Hours on app < 1/day | 📱 Re-engagement Push Notification |
+| Order count < 2 | 🎁 First-Order Incentive Offer |
+| City Tier 3 only | 👀 Monitor — Limited action available |
+| New customer (< 3 months) | 👀 Monitor — Onboarding check |
+
+---
+
+## 📂 Input CSV Format
+
+Your CSV must contain these columns (flexible naming supported):
+
+| Column | Type | Example |
+|---|---|---|
+| `Tenure` | Integer | `12` |
+| `CityTier` | Integer (1/2/3) | `1` |
+| `HourSpendOnApp` | Float | `3.5` |
+| `NumberOfDeviceRegistered` | Integer | `2` |
+| `Complain` | Binary (0/1) | `0` |
+| `OrderCount` | Integer | `5` |
+| `DaySinceLastOrder` | Integer | `7` |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Python 3.10+
+- Anthropic API Key → [Get yours here](https://console.anthropic.com)
+
+### Installation
+
 ```bash
+# 1. Clone the repository
+git clone https://github.com/maryhansabry/customer-churn.git
+cd customer-churn
+
+# 2. Create virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate        # Mac/Linux
+# venv\Scripts\activate         # Windows
+
+# 3. Install dependencies
 pip install -r requirements.txt
-```
 
-### 2. Add your model
-Copy `xgb_churn_model.pkl` into the `churn_dashboard/` folder.
+# 4. Set your Anthropic API key
+export ANTHROPIC_API_KEY=your_key_here        # Mac/Linux
+# set ANTHROPIC_API_KEY=your_key_here         # Windows
 
-### 3. Add your Anthropic API key
-```bash
-# Mac/Linux
-export ANTHROPIC_API_KEY=sk-ant-...
-
-# Windows
-set ANTHROPIC_API_KEY=sk-ant-...
-```
-
-> Get your key from: https://console.anthropic.com
-
-### 4. Run the app
-```bash
+# 5. Run the app
 python app.py
 ```
 
-Open → http://localhost:8050
+Open your browser at → **http://localhost:8050**
 
 ---
 
-## Features
+## 🤖 ML Model Details
 
-### Single Customer Tab
-- Enter 7 customer inputs
-- Get churn probability + gauge chart
-- See recommended action (call / coupon / notification / monitor)
-- Chat with AI about the specific customer
+The churn prediction model was trained on e-commerce customer data using:
 
-### Batch Analysis Tab
-- Upload any CSV with customer data
-- Automatic predictions for all customers
-- 6 interactive charts:
-  - Risk distribution (donut)
-  - Churn by city tier (bar)
-  - Churn vs complaint (comparison)
-  - Churn by tenure (trend)
-  - Hour spend vs risk (scatter)
-  - Risk score distribution (histogram)
-- Action summary: how many need calls vs coupons vs notifications
-- Sortable/filterable table with reasons
-- Download results as CSV
+- **Algorithm**: XGBoost Classifier
+- **Key Features**: Tenure, City Tier, App usage hours, Device count, Complaints, Order history
+- **Notebook**: See Customer_churn_analysis.ipynb` for full EDA, feature engineering, and training pipeline
+
+> To retrain on your own data, run all cells in the Jupyter Notebook and replace `xgb_churn_model.pkl` with your new model file.
 
 ---
 
-## CSV Format
+## 🌍 Deployment
 
-Your CSV needs these columns (flexible naming):
+This app is deployed on **Railway** and accessible at:  
+🔗 [https://customer-churn-production-4ac0.up.railway.app/](https://customer-churn-production-4ac0.up.railway.app/)
 
-| Column | Example |
-|--------|---------|
-| Tenure | 12 |
-| CityTier | 1 |
-| HourSpendOnApp | 3.5 |
-| NumberOfDeviceRegistered | 2 |
-| Complain | 0 |
-| OrderCount | 5 |
-| DaySinceLastOrder | 7 |
+To deploy your own instance:
+1. Fork this repository
+2. Create a new project on [Railway](https://railway.app)
+3. Connect your GitHub repo
+4. Add `ANTHROPIC_API_KEY` as an environment variable
+5. Deploy 🚀
 
 ---
 
-## Recommendation Logic
+## 🔮 Future Improvements
 
-| Trigger | Action |
-|---------|--------|
-| Complained = Yes | 📞 Retention Call |
-| Days since order > 20 | 🎁 Send Coupon |
-| Hours on app < 1 | 📱 Push Notification |
-| Order count < 2 | 🎁 First-Order Offer |
-| City Tier 3 only | 👀 Monitor (not actionable) |
-| New customer only | 👀 Monitor (not actionable) |
+- [ ] Add user authentication & login system
+- [ ] Support more ML models (LightGBM, CatBoost) with comparison
+- [ ] Real-time data streaming integration
+- [ ] Email/Slack notification system for high-risk customers
+- [ ] Multi-language support (Arabic / English)
+- [ ] Add unit tests & CI/CD pipeline via GitHub Actions
+
+---
+
+## 📜 License
+
+This project is open source — feel free to use, modify, and build on it.  
+See the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+
+⭐ **If this project helped you, consider giving it a star!** ⭐
+
+</div>
